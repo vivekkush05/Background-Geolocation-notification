@@ -1,0 +1,32 @@
+<ion-view hide-nav-bar="true">
+	<div class="padding pattern_bg login-modal" style="height:100%;">
+        <div style="height: 50%; text-align: center; display:block;">
+	        <img style="max-height: 150px; margin-top:75px;" ng-src="img/color-logo.png" class="animate-logo" />
+        </div>
+        <div class="" style="height: 35%; text-align: center; margin:0 20px">
+	        <ion-spinner icon="lines" align="center" ng-if="userIsLoggedIn"></ion-spinner>
+		   
+			<form  class="login-form">
+			
+			<div class="list">
+					<label class="item item-input item-stacked-label">
+						<span class="input-label" style="display: flex"><i class="ion-person"></i>&nbsp;Username</span>
+						<input type="text" ng-model="loginData.username" placeholder="Enter Username">
+					</label>
+					
+					<label class="item item-input item-stacked-label">
+						<span class="input-label" style="display: flex"><i class="ion-key"></i>&nbsp;Password</span>
+						<input type="password" ng-model="loginData.password" placeholder="Enter Password">
+					</label>
+
+			<button type="button" class="button button-dark button-block theme-btn2 animate-btn" ng-if="!userIsLoggedIn"  ng-click="doLogin()">Login</button>
+		   
+			</div>
+
+			</form>
+			
+            <br />
+            <div class="designed">Copyright &copy; Vibes Healthcare Limited</div>
+        </div>
+	</div>
+</ion-view>

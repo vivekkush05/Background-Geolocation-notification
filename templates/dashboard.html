@@ -1,0 +1,54 @@
+<ion-view>
+<ion-nav-bar class="bar bar-stable bar-header">
+    <!--<ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>-->
+    <ion-nav-buttons side="left">
+      <button 
+          class="button button-icon button-clear" menu-toggle="left">
+          <svg width="22" height="40">
+              <path stroke="#f36e1f" d="M0,10 22,10" stroke-width="3"></path>
+              <path stroke="#f36e1f" d="M0,19 12,19" stroke-width="3"></path>
+              <path stroke="#f36e1f" d="M0,28 22,28" stroke-width="3"></path>
+          </svg>
+      </button>
+    </ion-nav-buttons>
+    
+	<ion-nav-title><h1 class="title"><img src="img/logo.png" /></h1></ion-nav-title>
+    <ion-nav-buttons side="right">
+      <button type="button" class="button button-icon header-button icon ion-ios-telephone-outline" 
+      	ng-click="navigateTo(false, 'app.contact')">
+      </button>
+    </ion-nav-buttons>
+</ion-nav-bar>
+<ion-content>
+
+    <ion-slides options="galleryOptions" slider="gallerySlider" class="home-slider">
+        <ion-slide-page ng-repeat="img in mainSlideshow">
+        	<div class="home-main-slide" style="background-image:url('{{img.img}}');" ng-click="navigateTo(false, '{{img.link}}')">
+	            <img ng-src="{{img.thumb}}" />
+            </div>
+        </ion-slide-page>
+    </ion-slides>
+    
+
+	<div class="dashboard-items padding">
+            <button type="button" class="button button-full button-positive" ng-click="navigateTo(false, 'app.kyc')">KYC</button>
+
+            <button type="button" class="button button-full button-positive" ng-click="navigateTo(false, 'app.membership')">Membership</button>
+
+            <button type="button" class="button button-full button-positive" ng-click="navigateTo(false, 'app.reportmembership')">Report Membership</button>
+
+            <button type="button" class="button button-full button-positive" ng-click="navigateTo(false, 'app.redeemcoupon')">Redeem Coupon</button>
+
+            <button type="button" class="button button-full button-positive" ng-click="navigateTo(false, 'app.autocomplete')">Autocomplete</button>
+
+    </div>    
+ 
+
+ 
+</ion-content>
+
+
+</ion-view>

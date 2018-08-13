@@ -1,0 +1,78 @@
+<ion-side-menus enable-menu-with-back-views="true">
+	<ion-side-menu-content>
+        <ion-nav-bar class="bar-stable bar-stable">
+            <!--<ion-nav-back-button class="button-icon button-clear ion-ios-arrow-left">
+            </ion-nav-back-button>-->
+            <ion-nav-buttons side="left">
+                <button 
+                	class="button button-icon button-clear" menu-toggle="left">
+					<svg width="22" height="40">
+						<path stroke="#f36e1f" d="M0,10 22,10" stroke-width="3"></path>
+						<path stroke="#f36e1f" d="M0,19 12,19" stroke-width="3"></path>
+						<path stroke="#f36e1f" d="M0,28 22,28" stroke-width="3"></path>
+                    </svg>
+                </button>
+            </ion-nav-buttons>
+            <ion-nav-title>
+            	<img src="img/logo.png" class="nav-logo" />
+            </ion-nav-title>
+        </ion-nav-bar>
+
+
+        <ion-nav-view name="menuContent"></ion-nav-view>
+
+        
+	</ion-side-menu-content>
+	<ion-side-menu side="left" class="main-menu">
+		<div class="top-statusbar"></div> 
+    	<ion-content>
+			<div class="list no-margin">
+                <ion-item class="item-avatar item-icon-right menu-header" ng-if="userIsLoggedIn">
+                    <img src="img/user-img.png" ng-if="!loginData.gender">
+                    <img src="img/female-user-icon.jpg" ng-if="loginData.gender == 'Female'">
+                    <img src="img/male-user-icon.jpg" ng-if="loginData.gender == 'Male'">
+
+                    <h3 ng-if="(!loginData.name == '') || (!loginData.name == undefined)">{{loginData.name}}</h3>
+                    <h3 ng-if="(loginData.name == '') || (loginData.name == undefined)">VIBES MANAGER</h3>
+                    <p>{{loginData.username}}</p>
+                    <i class="icon ln-gear2 small" menu-close></i>
+                </ion-item>
+                <ion-item class="item-avatar item-icon-right menu-header"
+                    ng-if="!userIsLoggedIn">
+                    <img src="img/user-img.png">
+                    <h3>Welcome Guest</h3>
+                    <p>Please Login / Signup</p>
+                    <i class="icon ln-lock small" menu-close></i>
+                </ion-item>
+            </div>
+            <ion-list>
+                <ion-item menu-close ng-click="login()" ng-if="!userIsLoggedIn">
+	                <i class="icon ion-ios-locked-outline"></i>&nbsp; Have Account ? Login
+                </ion-item>
+                <ion-item menu-close ng-click="navigateTo(true, 'app.dashboard')">
+	                <i class="icon ion-ios-settings-strong"></i>&nbsp;Home</i>
+                </ion-item>
+                <ion-item menu-close ng-click="navigateTo(false, 'app.kyc')">
+	                <i class="icon ion-edit"></i>&nbsp;KYC</i>
+                </ion-item>
+                <ion-item menu-close ng-click="navigateTo(false, 'app.membership')">
+                        <i class="icon ion-card"></i>&nbsp;Membership</i>
+                    </ion-item>
+                <ion-item menu-close ng-click="navigateTo(false, 'app.reportmembership')">
+                        <i class="icon ion-card"></i>&nbsp;Report Membership</i>
+                    </ion-item>    
+                <ion-item menu-close ng-click="navigateTo(false, 'app.redeemcoupon')">
+	                <i class="icon ion-wand"></i>&nbsp;Redeem Coupon</i>
+                </ion-item>
+               
+               <!-- <ion-item menu-close ng-click="navigateTo(false, 'app.shop')">
+	                <i class="icon ion-bag"></i>&nbsp;Plan Redemption</i>
+                </ion-item>
+            -->
+                <ion-item menu-close ng-click="logout()" ng-if="userIsLoggedIn">
+	                <i class="icon ion-log-out"></i>&nbsp;Logout
+                </ion-item>
+            </ion-list>
+		</ion-content>
+  </ion-side-menu>
+</ion-side-menus>

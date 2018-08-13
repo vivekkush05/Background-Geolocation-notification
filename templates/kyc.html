@@ -1,0 +1,88 @@
+<ion-view>
+        <ion-nav-bar class="bar bar-dark bar-header theme-header">
+            <ion-nav-back-button class="button-icon button-clear ion-ios-arrow-left"></ion-nav-back-button>
+            <ion-nav-buttons side="left">
+              <button 
+                  class="button button-icon button-clear" menu-toggle="left">
+                  <svg width="22" height="40">
+                      <path stroke="#fff" d="M0,10 22,10" stroke-width="3"></path>
+                      <path stroke="#fff" d="M0,19 12,19" stroke-width="3"></path>
+                      <path stroke="#fff" d="M0,28 22,28" stroke-width="3"></path>
+                  </svg>
+              </button>
+            </ion-nav-buttons>
+            <ion-nav-title><h1 class="title">KYC</h1></ion-nav-title>
+        </ion-nav-bar>
+        <ion-content class="light_grey_bg">
+            
+               
+            
+            <div class="grey_bg">
+                <form class="contact-form" name="projectForm">
+                    <label class="group-label">Search for KYC User</label>
+                    <div class="item item-input-inset">
+                        <label class="item-input-wrapper">
+                            <input type="text" ng-model="start.date" name="start.date" placeholder="Select Start Date (YYYY-MM-DD)" />
+                        </label>
+                        <button type="button" class="button button-dark button-small theme-btn ion-android-calendar" ng-click="openDatePicker()"></button>
+                    </div>
+                    <div class="item item-input-inset">
+                            <label class="item-input-wrapper">
+                                <input type="text" ng-model="end.date" name="end.date" placeholder="Select End Date (YYYY-MM-DD)" />
+                            </label>
+                            <button type="button" class="button button-dark button-small theme-btn ion-android-calendar" ng-click="endDatePicker()"></button>
+                        </div>
+                        
+                  
+                    <button class="button button-block button-dark theme-btn icon ion-android-done-all" 
+                    type="button" ng-click="getkyclist()">&nbsp; Search</button>
+                    
+                </form>
+            </div>
+
+
+            <div class="">
+                
+                
+                <div class="testimonials-list coupons-list">
+
+
+                       
+                        <div class="card" ng-repeat="item in kyclist" ng-if="!noDataFound">
+                            
+                            <div class="item">
+                                   <h2>Name : {{item.name}}</h2>
+                                   <p  class="description"> Address: {{item.address}}</p>
+                            </div>
+                            
+                            <div class="row light_grey_bg">
+                                <div class="col-100">
+                                    <div class="coupon-code-block border-right"><span>Mobile No</span>{{item.mobile_no}}</div>
+                                </div>
+                                <div class="col-100">
+                                    <div class="coupon-code-block"><span>Email</span>{{item.email_id}}</div>
+                                </div>   
+
+                            </div>
+                        </div>
+                        
+                        <div class="item grey_bg" ng-if="noDataFound">
+                            <div class="text-center">
+                             <img src="img/norecordfound.png" class="image-responsive" />
+                                <p>&nbsp;</p>
+                                <h2>Sorry you do not have any kyc user right now !!!</h2>
+                            </div>
+                        </div>
+                
+                </div>
+    
+        </div>
+
+
+
+
+        <ion-infinite-scroll immediate-check="false"   on-infinite="get_more()" distance="5%" ng-if="!noloadDataFound"> </ion-infinite-scroll>
+            
+        </ion-content>
+        </ion-view>
+        

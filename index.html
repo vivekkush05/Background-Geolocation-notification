@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+    
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="lib/materialDesign/angular-material.min.css">-->
+    
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ng-cordova.min.js"></script>
+    <script src="js/services/ion-rating.js"></script>
+    <script src="js/services/ionic-datepicker.bundle.min.js"></script>
+    <script src="js/services/ionic-modal-select.min.js"></script>
+	<script src="js/services/tabSlideBox.js"></script>
+    
+    <!--
+    <script src="lib/materialDesign/angular.min.js"></script>
+    <script src="lib/ionicmaterial/ionic.material.min.js"></script>
+    <link rel="stylesheet" href="lib/ionicmaterial/ionic.material.min" type="text/css">
+    -->
+    <link href="css/tabSlideBox.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/ion-md-input.css" />
+    <script src="js/services/ion-md-input.js"></script>
+    <script src="js/services/ion-md-select.js"></script>
+    
+    <link href="lib/materialDesign/angular-material.min.css" rel="stylesheet">
+    <script src="lib/materialDesign/angular-aria.min.js"></script>
+   	<script src="lib/materialDesign/angular-material.min.js"></script>
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <!--<script src="lib/materialDesign/angular.min.js"></script>
+    <script src="lib/materialDesign/angular-animate.min.js"></script>
+    <script src="lib/materialDesign/angular-aria.min.js"></script>
+    <script src="lib/materialDesign/angular-messages.min.js"></script>
+    <script src="lib/materialDesign/angular-material.min.js"></script>-->
+    
+    <link href="css/ion-md-select.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services/webstreaks.js"></script>
+    <script src="js/services/toast.js"></script>
+</head>
+<body ng-app="starter">
+	<ion-nav-view></ion-nav-view>
+</body>
+</html>

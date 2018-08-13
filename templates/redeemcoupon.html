@@ -1,0 +1,72 @@
+<ion-view>
+        <ion-nav-bar class="bar bar-dark bar-header theme-header">
+                <ion-nav-back-button class="button-icon button-clear ion-ios-arrow-left"></ion-nav-back-button>
+                <ion-nav-buttons side="left">
+                  <button 
+                      class="button button-icon button-clear" menu-toggle="left">
+                      <svg width="22" height="40">
+                          <path stroke="#fff" d="M0,10 22,10" stroke-width="3"></path>
+                          <path stroke="#fff" d="M0,19 12,19" stroke-width="3"></path>
+                          <path stroke="#fff" d="M0,28 22,28" stroke-width="3"></path>
+                      </svg>
+                  </button>
+                </ion-nav-buttons>
+                <ion-nav-title><h1 class="title">Coupons</h1></ion-nav-title>
+            </ion-nav-bar>
+    <ion-content>
+    
+         
+        <div class="grey_bg">
+            <form class="contact-form" name="couponForm" novalidate>
+                <label class="group-label">Search for coupons</label>
+                <div class="item item-input-inset">
+                    <label class="item-input-wrapper">
+                        <input type="number" ng-model="couponData.search_mobile" name="couponData.search_mobile" 
+                        ng-minlength="10" pattern="[0-9]*" ng-maxlength="10" placeholder="Enter mobile No." required/>
+                    </label>
+    
+                </div>
+                
+                <button class="button button-block button-dark theme-btn icon ion-android-done-all" 
+                type="button" ng-click="getcouponlist()" ng-disabled="couponForm.$invalid">&nbsp; Search</button>
+                
+            </form>
+        </div>
+    
+        <div class="text-center">
+                <div class="testimonials-list coupons-list">
+                        <div class="card" ng-repeat="item in couponlist" ng-if="!noDataFound">
+                            <div class="item">
+                    <h2>Name : {{item.name}}</h2>
+                                <p ng-if="item.claimed == 'Yes'"><strong>Status : </strong>Claimed</p>
+                                <p ng-if="item.claimed == 'No'" ng-click="changecouponstatus(item.id)" ><strong>Status : </strong>Not Claimed</p>
+                                <p ng-bind-html="item.coupon[0].description"></p>
+                            </div>
+                            <div class="row light_grey_bg">
+                                <div class="col-50">
+                                    <div class="coupon-code-block border-right"><span>Valid Till</span>{{item.coupon[0].end_date}}</div>
+                                </div>
+                                <div class="col-50">
+                                    <div class="coupon-code-block"><span>CODE</span>{{item.coupan_code}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="item grey_bg" ng-if="noDataFound">
+                            <div class="text-center">
+                             <img src="img/norecordfound.png" class="image-responsive" />
+                                <p>&nbsp;</p>
+                                <h2>Sorry you do not have any coupons right now !!!</h2>
+                            </div>
+                  </div>
+                    </div>
+        </div>
+      
+        <ion-infinite-scroll immediate-check="false"   on-infinite="get_more()" distance="1%" ng-if="!noloadDataFound"> </ion-infinite-scroll>
+      
+    
+        
+    </ion-content>
+        
+            
+    </ion-view>

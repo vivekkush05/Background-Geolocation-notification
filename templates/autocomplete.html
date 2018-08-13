@@ -1,0 +1,51 @@
+<div layout="column" ng-cloak="" class="autocompletedemoBasicUsage" ng-app="MyApp">
+    <md-content class="md-padding">
+      <form ng-submit="$event.preventDefault()">
+       
+        <md-autocomplete   
+        ng-disabled = "isDisabled"
+        md-no-cache = "noCache"
+         md-items="item in searchAspect(searchText)" 
+        md-item-text="item.firmname" 
+        md-search-text="searchText"
+        md-min-length="0"
+        md-delay="100"
+        placeholder="Search..."
+        md-selected-item="selectedItem"
+        md-search-text-change="searchTextChange(searchText)"
+        md-selected-item-change="selectedItemChange(item)"
+        >
+
+          <md-item-template>
+            
+            <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.firmname}}---{{item.username}}</span>
+          </md-item-template>
+          <md-not-found>
+              No states matching "{{searchText}}" were found.
+          </md-not-found>
+        </md-autocomplete>
+        <br>
+       
+        
+
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+            <input type="text" ng-model="featureData.otp" name="featureData.otp"  
+             ng-minlength="10" ng-maxlength="10" placeholder="OTP." required/>
+        </label>
+    </div>
+      
+      </form>
+    </md-content>
+  </div>
+
+       
+                
+               
+
+
+
+        </ion-content>
+
+</ion-view>
+        

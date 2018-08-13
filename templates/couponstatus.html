@@ -1,0 +1,53 @@
+<ion-view>
+        <ion-nav-bar class="bar bar-dark bar-header theme-header">
+                <ion-nav-back-button class="button-icon button-clear ion-ios-arrow-left"></ion-nav-back-button>
+               
+                 <!--   <ion-nav-buttons side="left">
+              <button 
+                      class="button button-icon button-clear" menu-toggle="left">
+                      <svg width="22" height="40">
+
+                          <path stroke="#fff" d="M0,10 22,10" stroke-width="3"></path>
+                          <path stroke="#fff" d="M0,19 12,19" stroke-width="3"></path>
+                          <path stroke="#fff" d="M0,28 22,28" stroke-width="3"></path>
+                      </svg>
+                  </button>
+                </ion-nav-buttons>-->
+                <ion-nav-title><h1 class="title">Redeem Coupon</h1></ion-nav-title>
+            </ion-nav-bar>
+    <ion-content>
+    
+         
+        <div class="grey_bg">
+            <form class="contact-form" name="couponForm" novalidate>
+                <label class="group-label">Redeem coupons</label>
+                  
+                <label class="item-radio-label">Center</label>
+                <md-select ng-model="center_id"  ng-change="selectCenter(center_id)" highlight-color="energized">
+                    <md-option ng-value="{{type.id}}" data-ng-repeat="type in centerdata">
+                        {{ type.centers_name }}
+                    </md-option>
+                </md-select>
+
+                <div class="item item-input-inset">
+                        <label class="item-input-wrapper">
+                         <textarea name="couponstatusData.comment" id="comment-textarea" ng-model="couponstatusData.comment" placeholder="write Comment." required> </textarea>
+        
+                        </label>
+                        
+
+                    </div>
+                
+                <button type="button" class="button button-block button-dark theme-btn icon ion-android-done-all" 
+                 ng-click="updatecouponstatus()">&nbsp; Submit</button>
+                
+            </form>
+        </div>
+    
+        
+    
+        
+    </ion-content>
+        
+            
+    </ion-view>
